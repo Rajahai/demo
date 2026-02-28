@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cellcon Precast Solutions — Digital Marketing Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark: #181818;
+  --darker: #111;
+  --mid: #242424;
+  --card: #1e1e1e;
+  --border: #2a2a2a;
+  --light: #f4f1eb;
+  --off: #eae7e0;
+  --white: #ffffff;
+  --gold: #c9a96e;
+  --gold2: #e0c48a;
+  --muted: #888;
+  --text-d: #ccc;
+  --nav-w: 240px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--darker);
+  font-family: 'Syne', sans-serif;
+  color: var(--text-d);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ═══ TOP BAR ═══ */
+#topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 56px;
+  background: rgba(17,17,17,0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; gap: 16px;
+}
+.topbar-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px; letter-spacing: 3px; color: var(--gold);
+  white-space: nowrap; flex-shrink: 0;
+}
+.topbar-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: #3a3a3a; letter-spacing: 3px; text-transform: uppercase;
+}
+#hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 6px; border-radius: 4px;
+  background: none; border: none; transition: background 0.2s;
+}
+#hamburger:hover { background: rgba(255,255,255,0.05); }
+#hamburger span {
+  width: 22px; height: 2px; background: var(--muted);
+  border-radius: 2px; transition: all 0.3s; display: block;
+}
+#hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+#hamburger.open span:nth-child(2) { opacity: 0; }
+#hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+/* ═══ LAYOUT ═══ */
+#layout { display: flex; padding-top: 56px; min-height: 100vh; }
+
+/* ═══ SIDEBAR ═══ */
+#sidenav {
+  position: fixed; top: 56px; left: 0; bottom: 0;
+  width: var(--nav-w);
+  background: var(--dark);
+  border-right: 1px solid var(--border);
+  overflow-y: auto; z-index: 100;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  display: flex; flex-direction: column;
+  scrollbar-width: thin; scrollbar-color: #2a2a2a transparent;
+}
+#sidenav::-webkit-scrollbar { width: 3px; }
+#sidenav::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 2px; }
+
+.nav-brand {
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 3px; color: #333; text-transform: uppercase;
+}
+.nav-brand-name { font-size: 12px; font-weight: 700; color: var(--white); margin-top: 3px; }
+
+.nav-group-label {
+  padding: 14px 18px 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 2px; color: #333; text-transform: uppercase;
+}
+
+.nav-link {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 18px; cursor: pointer;
+  color: #4a4a4a; font-size: 12px; font-weight: 600;
+  transition: all 0.18s;
+  border-left: 2px solid transparent;
+  text-decoration: none; position: relative;
+}
+.nav-link:hover { color: var(--gold); background: rgba(201,169,110,0.05); }
+.nav-link.active {
+  color: var(--gold); background: rgba(201,169,110,0.08);
+  border-left-color: var(--gold);
+}
+.nav-icon { font-size: 13px; width: 18px; text-align: center; flex-shrink: 0; }
+.nav-num {
+  font-family: 'DM Mono', monospace; font-size: 8px;
+  color: #2e2e2e; margin-left: auto; flex-shrink: 0;
+}
+.nav-link.active .nav-num { color: rgba(201,169,110,0.45); }
+
+.nav-bottom {
+  margin: 14px; padding: 0; margin-top: auto;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.nav-price-badge {
+  background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 8px; padding: 12px 14px; text-align: center;
+}
+.nav-price-label { font-size: 9px; color: #555; letter-spacing: 1px; text-transform: uppercase; }
+.nav-price-val {
+  font-family: 'Bebas Neue', sans-serif; font-size: 26px; color: var(--gold); line-height: 1.1;
+}
+.nav-price-sub { font-size: 9px; color: #444; }
+.nav-cta-btn {
+  display: block; padding: 11px;
+  background: var(--gold); border-radius: 8px;
+  text-align: center; cursor: pointer;
+  font-size: 11px; font-weight: 700; color: var(--darker);
+  transition: all 0.2s; text-decoration: none;
+}
+.nav-cta-btn:hover { background: var(--gold2); transform: scale(1.02); }
+
+/* ═══ MAIN ═══ */
+#main { margin-left: var(--nav-w); flex: 1; min-width: 0; }
+
+/* ═══ SECTIONS ═══ */
+section {
+  scroll-margin-top: 72px; padding: 80px 64px;
+  border-bottom: 1px solid var(--border); position: relative;
+}
+section:nth-child(odd) { background: var(--darker); }
+section:nth-child(even) { background: var(--dark); }
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 10px;
+}
+.sec-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 5.5vw, 72px);
+  color: var(--white); line-height: 0.92; margin-bottom: 8px;
+}
+.sec-title .g { color: var(--gold); }
+.sec-sub {
+  font-size: clamp(13px, 1.4vw, 14.5px);
+  color: #666; max-width: 540px; line-height: 1.75; margin-bottom: 40px;
+}
+
+/* ═══ HERO ═══ */
+#hero {
+  min-height: calc(100vh - 56px);
+  display: flex; align-items: center;
+  padding: 80px 64px; overflow: hidden; position: relative;
+  background: var(--darker) !important;
+}
+#hero::before {
+  content: 'CELLCON';
+  position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(100px, 16vw, 240px);
+  color: rgba(255,255,255,0.018);
+  letter-spacing: -5px; pointer-events: none; white-space: nowrap;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; width: 100%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.25);
+  border-radius: 100px; padding: 6px 14px;
+  font-family: 'DM Mono', monospace; font-size: 9.5px; color: var(--gold);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 22px;
+}
+.hero-badge::before { content: '●'; font-size: 7px; animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:0.3} }
+.hero-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(54px, 7vw, 96px); line-height: 0.9;
+  color: var(--white); margin-bottom: 20px;
+}
+.hero-h1 .g { color: var(--gold); }
+.hero-p { font-size: clamp(13px, 1.3vw, 14.5px); color: #666; line-height: 1.8; max-width: 420px; margin-bottom: 32px; }
+.hero-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-bottom: 36px; }
+.stat { display: flex; flex-direction: column; gap: 2px; }
+.stat-n {
+  font-family: 'Bebas Neue', sans-serif; font-size: 34px; color: var(--white); line-height: 1;
+}
+.stat-n em { color: var(--gold); font-style: normal; font-size: 0.7em; }
+.stat-l { font-size: 10.5px; color: #444; letter-spacing: 1px; }
+.hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn-g {
+  padding: 12px 26px; background: var(--gold); color: var(--darker);
+  border: none; border-radius: 7px; font-family: 'Syne', sans-serif;
+  font-size: 12.5px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.btn-g:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,169,110,0.25); }
+.btn-o {
+  padding: 12px 26px; background: transparent; color: #aaa;
+  border: 1px solid #2d2d2d; border-radius: 7px; font-family: 'Syne', sans-serif;
+  font-size: 12.5px; font-weight: 600; cursor: pointer; transition: all 0.2s;
+  text-decoration: none; display: inline-block;
+}
+.btn-o:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Quick nav cards on hero */
+.hero-right { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: relative; z-index: 1; }
+.qcard {
+  background: var(--mid); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px 16px;
+  cursor: pointer; transition: all 0.22s; text-decoration: none; display: block;
+}
+.qcard:hover { border-color: rgba(201,169,110,0.45); background: rgba(201,169,110,0.06); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.3); }
+.qcard-icon { font-size: 22px; margin-bottom: 8px; }
+.qcard-title { font-size: 12.5px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+.qcard-desc { font-size: 10.5px; color: #555; line-height: 1.4; }
+.qcard-arr { margin-top: 10px; font-size: 10px; color: #3a3a3a; font-family: 'DM Mono', monospace; transition: color 0.2s; }
+.qcard:hover .qcard-arr { color: var(--gold); }
+.qcard.wide {
+  grid-column: span 2; display: flex; align-items: center; gap: 16px;
+  background: rgba(201,169,110,0.07); border-color: rgba(201,169,110,0.22);
+}
+.qcard.wide .qcard-icon { font-size: 28px; flex-shrink: 0; }
+
+/* ═══ GRIDS ═══ */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.g5 { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; }
+.g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+
+/* ═══ CARDS ═══ */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 22px; transition: border-color 0.2s, transform 0.2s;
+}
+.card:hover { border-color: #383838; }
+.card.hov:hover { border-color: rgba(201,169,110,0.35); transform: translateY(-2px); }
+.card-title { font-size: 13.5px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.card-desc { font-size: 12px; color: #666; line-height: 1.6; }
+
+/* ═══ BULLETS ═══ */
+.blist { display: flex; flex-direction: column; gap: 8px; }
+.bi {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: #777; line-height: 1.5;
+}
+.bi::before { content: '—'; color: var(--gold); flex-shrink: 0; font-size: 12px; margin-top: 1px; }
+
+/* ═══ NUM ITEMS ═══ */
+.ni {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 15px 16px; background: var(--card); border: 1px solid var(--border);
+  border-radius: 8px; transition: border-color 0.2s;
+}
+.ni:hover { border-color: rgba(201,169,110,0.3); }
+.ni-num {
+  font-family: 'DM Mono', monospace; font-size: 9.5px; color: var(--gold);
+  flex-shrink: 0; background: rgba(201,169,110,0.1); border-radius: 4px; padding: 3px 7px; margin-top: 1px;
+}
+.ni-text { font-size: 12.5px; color: #888; line-height: 1.5; }
+
+/* ═══ TAGS ═══ */
+.tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
+.tg {
+  padding: 4px 11px; border-radius: 5px; font-size: 11px; font-weight: 600;
+}
+.tg-g { background: rgba(201,169,110,0.12); color: var(--gold); border: 1px solid rgba(201,169,110,0.2); }
+.tg-d { background: rgba(255,255,255,0.04); color: #666; border: 1px solid #252525; }
+
+/* ═══ DIVIDER LABEL ═══ */
+.dl {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 20px; margin-top: 28px;
+}
+.dl:first-child { margin-top: 0; }
+.dl-line { flex: 1; height: 1px; background: #1e1e1e; }
+.dl-text { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 2px; color: #333; text-transform: uppercase; white-space: nowrap; }
+
+/* ═══ KW PILLS ═══ */
+.kw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.kwp {
+  display: flex; align-items: center; gap: 9px;
+  padding: 9px 13px; background: var(--card); border: 1px solid var(--border);
+  border-radius: 6px; font-size: 12px; color: #777; transition: border-color 0.18s;
+}
+.kwp:hover { border-color: rgba(201,169,110,0.3); color: #999; }
+.kwp-h { font-family: 'DM Mono', monospace; color: var(--gold); font-size: 10px; }
+
+/* ═══ BLOG CARDS ═══ */
+.bgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.bcard {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 9px; padding: 18px 20px;
+  display: flex; gap: 12px; align-items: flex-start; transition: all 0.2s;
+}
+.bcard:hover { border-color: rgba(201,169,110,0.3); background: rgba(201,169,110,0.04); }
+.bcard-n {
+  font-family: 'DM Mono', monospace; font-size: 9.5px; color: var(--gold);
+  flex-shrink: 0; background: rgba(201,169,110,0.1); border-radius: 4px; padding: 3px 7px; margin-top: 2px;
+}
+.bcard-t { font-size: 12.5px; color: #999; line-height: 1.5; }
+
+/* ═══ FUNNEL ═══ */
+.funnel {
+  display: flex; align-items: stretch; gap: 0;
+  border-radius: 10px; overflow: hidden; border: 1px solid var(--border);
+}
+.fstep {
+  flex: 1; padding: 22px 16px;
+  display: flex; flex-direction: column; gap: 5px;
+  position: relative; border-right: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.fstep:last-child { border-right: none; }
+.fstep:hover { background: rgba(201,169,110,0.04); }
+.fstep.fin { background: rgba(201,169,110,0.08); border-color: rgba(201,169,110,0.2); }
+.fstep-n { font-family:'DM Mono',monospace; font-size:9px; color:#3a3a3a; }
+.fstep.fin .fstep-n { color: rgba(201,169,110,0.5); }
+.fstep-t { font-size:12.5px; font-weight:700; color:var(--white); line-height:1.3; }
+.fstep.fin .fstep-t { color:var(--gold); }
+.fstep-d { font-size:10.5px; color:#555; line-height:1.4; margin-top:2px; }
+.farr {
+  position:absolute; right:-10px; top:50%; transform:translateY(-50%);
+  width:20px; height:20px; background:var(--dark); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; color:#444; z-index:2; border:1px solid var(--border);
+}
+.fstep:last-child .farr { display:none; }
+
+/* ═══ DELIVERABLES ═══ */
+.dcard {
+  border-radius: 10px; padding: 22px 18px;
+  display: flex; flex-direction: column; gap: 7px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.dcard:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+.dcard.dk { background: var(--mid); border: 1px solid var(--border); }
+.dcard.lt { background: rgba(201,169,110,0.07); border: 1px solid rgba(201,169,110,0.18); }
+.dcard-n {
+  font-family: 'Bebas Neue', sans-serif; font-size: 52px; line-height: 1;
+}
+.dcard.dk .dcard-n { color: var(--gold); }
+.dcard.lt .dcard-n { color: var(--gold2); }
+.dcard-l { font-size: 12.5px; font-weight: 700; color: var(--white); line-height: 1.3; }
+.dcard-s { font-size: 10.5px; color: #4a4a4a; line-height: 1.5; }
+
+/* ═══ REP ITEMS ═══ */
+.rgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 9px; }
+.ri {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 7px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 9px;
+  font-size: 12px; color: #666; transition: border-color 0.18s;
+}
+.ri:hover { border-color: rgba(201,169,110,0.3); color: #999; }
+.rdot { width:6px; height:6px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+
+/* ═══ INVESTMENT ═══ */
+.inv-hero {
+  background: var(--mid); border: 1px solid var(--border);
+  border-radius: 14px; padding: 40px 44px;
+  display: flex; align-items: center; gap: 44px;
+  position: relative; overflow: hidden; margin-bottom: 28px;
+}
+.inv-hero::before {
+  content: '';position:absolute;inset:0;
+  background: repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(201,169,110,0.025) 40px,rgba(201,169,110,0.025) 42px);
+}
+.inv-price-wrap { flex-shrink:0; position:relative; z-index:1; }
+.inv-lbl { font-size:11px; color:#444; letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
+.inv-price {
+  font-family:'Bebas Neue',sans-serif; font-size:clamp(52px,7vw,84px);
+  color:var(--white); line-height:1;
+}
+.inv-price em { color:var(--gold); font-size:0.58em; font-style:normal; }
+.inv-tag { font-size:11.5px; color:#484848; margin-top:6px; }
+.inv-div { width:1px; height:90px; background:var(--border); flex-shrink:0; }
+.inv-inc { flex:1; position:relative; z-index:1; }
+.inv-inc-lbl { font-size:9.5px; color:#3a3a3a; text-transform:uppercase; letter-spacing:2px; margin-bottom:12px; }
+.inc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.inc-row {
+  display:flex; align-items:center; gap:7px; font-size:11.5px; color:#777;
+}
+.inc-ck {
+  width:16px; height:16px; flex-shrink:0; border-radius:50%;
+  background:rgba(201,169,110,0.12); display:flex; align-items:center; justify-content:center;
+  font-size:8px; color:var(--gold);
+}
+
+.excl-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.excl-row {
+  display:flex; align-items:center; gap:9px; padding:9px 12px;
+  border:1px solid #1e1e1e; border-radius:6px; font-size:11.5px; color:#4a4a4a;
+}
+.excl-x { color:#333; font-size:14px; flex-shrink:0; }
+
+/* ═══ OUTCOMES ═══ */
+.ocard {
+  border-radius: 10px; padding: 26px 22px;
+  display: flex; flex-direction: column; gap: 9px;
+  transition: transform 0.2s;
+}
+.ocard:hover { transform: translateY(-4px); }
+.ocard.dk { background: var(--mid); border: 1px solid var(--border); }
+.ocard.lt { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); }
+.ocard-icon { font-size: 26px; }
+.ocard-title { font-size: 14px; font-weight: 700; color: var(--white); }
+.ocard-desc { font-size: 12px; color: #5a5a5a; line-height: 1.6; }
+
+/* ═══ FOOTER ═══ */
+#foot {
+  text-align: center; padding: 80px 60px 56px;
+  background: var(--dark) !important;
+  border-top: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+#foot::before {
+  content: 'THANKS';
+  position:absolute; font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(80px,13vw,200px); color:rgba(255,255,255,0.018);
+  left:50%; top:50%; transform:translate(-50%,-50%);
+  white-space:nowrap; pointer-events:none;
+}
+.foot-label { font-family:'DM Mono',monospace; font-size:9.5px; color:#333; letter-spacing:3px; text-transform:uppercase; margin-bottom:10px; }
+.foot-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(52px,8vw,100px); color:var(--white); line-height:1; margin-bottom:8px; }
+.foot-sub { font-size:14px; color:#444; margin-bottom:30px; }
+.foot-contact { font-family:'DM Mono',monospace; font-size:12px; color:#383838; margin-top:36px; }
+.foot-contact a { color:var(--gold); text-decoration:none; }
+.foot-contact a:hover { color:var(--gold2); }
+
+/* ═══ OVERLAY ═══ */
+#overlay {
+  display:none; position:fixed; inset:0; z-index:99;
+  background:rgba(0,0,0,0.6); backdrop-filter:blur(4px);
+}
+
+/* ═══ FADE ANIMATION ═══ */
+.fi { opacity:0; transform:translateY(16px); transition:opacity 0.45s ease, transform 0.45s ease; }
+.fi.on { opacity:1; transform:translateY(0); }
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1080px) {
+  :root { --nav-w: 200px; }
+  section { padding: 64px 44px; }
+  .g5 { grid-template-columns: repeat(3,1fr); }
+  .inv-hero { flex-direction:column; gap:24px; }
+  .inv-div { width:100%; height:1px; }
+}
+@media(max-width:880px) {
+  #hamburger { display:flex; }
+  #sidenav { transform:translateX(-100%); width:260px; box-shadow:8px 0 32px rgba(0,0,0,0.5); }
+  #sidenav.open { transform:translateX(0); }
+  #overlay.open { display:block; }
+  #main { margin-left:0; }
+  .hero-grid { grid-template-columns:1fr; gap:36px; }
+  .hero-right { grid-template-columns:1fr 1fr; }
+  .g2 { grid-template-columns:1fr; gap:24px; }
+  .g3 { grid-template-columns:1fr 1fr; }
+  .g4 { grid-template-columns:1fr 1fr; }
+  .g5 { grid-template-columns:1fr 1fr; }
+  section { padding:56px 30px; }
+  .inc-grid { grid-template-columns:1fr 1fr; }
+  .excl-grid { grid-template-columns:1fr 1fr; }
+  .inv-hero { padding:28px; }
+  .rgrid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px) {
+  .hero-right { grid-template-columns:1fr; }
+  .qcard.wide { flex-direction:column; }
+  .g3 { grid-template-columns:1fr; }
+  .g4 { grid-template-columns:1fr 1fr; }
+  .g5 { grid-template-columns:1fr; }
+  .kw-grid { grid-template-columns:1fr; }
+  .bgrid { grid-template-columns:1fr; }
+  .rgrid { grid-template-columns:1fr; }
+  .excl-grid { grid-template-columns:1fr; }
+  .inc-grid { grid-template-columns:1fr 1fr; }
+  .funnel { flex-direction:column; }
+  .fstep { border-right:none; border-bottom:1px solid var(--border); }
+  .fstep:last-child { border-bottom:none; }
+  .farr { display:none; }
+  section { padding:44px 18px; }
+  .hero-stats { gap:18px; }
+  .hero-btns { flex-direction:column; }
+  .hero-btns a { text-align:center; }
+  .topbar-sub { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header id="topbar">
+  <div class="topbar-logo">CELLCON</div>
+  <div class="topbar-sub">Digital Marketing Proposal</div>
+  <button id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- OVERLAY -->
+<div id="overlay" onclick="closeNav()"></div>
+
+<div id="layout">
+
+  <!-- SIDEBAR NAV -->
+  <nav id="sidenav">
+    <div class="nav-brand">
+      <div class="nav-brand-tag">Proposal Navigation</div>
+      <div class="nav-brand-name">Cellcon Precast Solutions</div>
+    </div>
+
+    <div class="nav-group-label">Overview</div>
+    <a class="nav-link active" href="#hero" onclick="nc(this)">
+      <span class="nav-icon">🏠</span>Home<span class="nav-num">00</span>
+    </a>
+    <a class="nav-link" href="#summary" onclick="nc(this)">
+      <span class="nav-icon">📋</span>Executive Summary<span class="nav-num">01</span>
+    </a>
+    <a class="nav-link" href="#objectives" onclick="nc(this)">
+      <span class="nav-icon">🎯</span>Objectives<span class="nav-num">02</span>
+    </a>
+
+    <div class="nav-group-label">Scope of Work</div>
+    <a class="nav-link" href="#videos" onclick="nc(this)">
+      <span class="nav-icon">🎬</span>Short Videos<span class="nav-num">03</span>
+    </a>
+    <a class="nav-link" href="#posters" onclick="nc(this)">
+      <span class="nav-icon">🎨</span>Posters & YouTube<span class="nav-num">04</span>
+    </a>
+    <a class="nav-link" href="#seo" onclick="nc(this)">
+      <span class="nav-icon">🔍</span>SEO Strategy<span class="nav-num">05</span>
+    </a>
+    <a class="nav-link" href="#blogs" onclick="nc(this)">
+      <span class="nav-icon">✍️</span>Blog Strategy<span class="nav-num">06</span>
+    </a>
+
+    <div class="nav-group-label">Results & Costs</div>
+    <a class="nav-link" href="#funnel" onclick="nc(this)">
+      <span class="nav-icon">📊</span>Lead Funnel<span class="nav-num">07</span>
+    </a>
+    <a class="nav-link" href="#deliverables" onclick="nc(this)">
+      <span class="nav-icon">📦</span>Deliverables<span class="nav-num">08</span>
+    </a>
+    <a class="nav-link" href="#investment" onclick="nc(this)">
+      <span class="nav-icon">💰</span>Investment<span class="nav-num">09</span>
+    </a>
+    <a class="nav-link" href="#outcomes" onclick="nc(this)">
+      <span class="nav-icon">🚀</span>Outcomes<span class="nav-num">10</span>
+    </a>
+    <a class="nav-link" href="#foot" onclick="nc(this)">
+      <span class="nav-icon">👋</span>Thank You<span class="nav-num">11</span>
+    </a>
+
+    <div class="nav-bottom">
+      <div class="nav-price-badge">
+        <div class="nav-price-label">Monthly Retainer</div>
+        <div class="nav-price-val">Rs. 48,500</div>
+        <div class="nav-price-sub">Single unified engagement</div>
+      </div>
+      <a class="nav-cta-btn" href="#investment">View Full Pricing →</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="main">
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badge">Digital Marketing Proposal 2024</div>
+          <h1 class="hero-h1">CELLCON<br><span class="g">PRECAST</span><br>SOLUTIONS</h1>
+          <p class="hero-p">Integrated digital strategy covering social media, video marketing, SEO, and blog authority — built specifically for the precast & modular construction industry.</p>
+          <div class="hero-stats">
+            <div class="stat"><div class="stat-n">8<em>/mo</em></div><div class="stat-l">Short Videos</div></div>
+            <div class="stat"><div class="stat-n">20<em>+</em></div><div class="stat-l">SEO Keywords</div></div>
+            <div class="stat"><div class="stat-n">4<em>+</em></div><div class="stat-l">Platforms</div></div>
+            <div class="stat"><div class="stat-n">90<em>d</em></div><div class="stat-l">First Results</div></div>
+          </div>
+          <div class="hero-btns">
+            <a href="#investment" class="btn-g">View Investment →</a>
+            <a href="#summary" class="btn-o">Read Proposal</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <a href="#videos" class="qcard">
+            <div class="qcard-icon">🎬</div>
+            <div class="qcard-title">Video Marketing</div>
+            <div class="qcard-desc">8 short + 4 YouTube long-form per month</div>
+            <div class="qcard-arr">→ View Scope</div>
+          </a>
+          <a href="#seo" class="qcard">
+            <div class="qcard-icon">🔍</div>
+            <div class="qcard-title">SEO Strategy</div>
+            <div class="qcard-desc">20 targeted keywords tracked monthly</div>
+            <div class="qcard-arr">→ SEO Plan</div>
+          </a>
+          <a href="#blogs" class="qcard">
+            <div class="qcard-icon">✍️</div>
+            <div class="qcard-title">Blog Authority</div>
+            <div class="qcard-desc">4 SEO-optimised blogs per month</div>
+            <div class="qcard-arr">→ Sample Topics</div>
+          </a>
+          <a href="#deliverables" class="qcard">
+            <div class="qcard-icon">📊</div>
+            <div class="qcard-title">Monthly Reporting</div>
+            <div class="qcard-desc">Analytics, rankings & lead tracking</div>
+            <div class="qcard-arr">→ Deliverables</div>
+          </a>
+          <a href="#investment" class="qcard wide">
+            <div class="qcard-icon">💰</div>
+            <div>
+              <div class="qcard-title" style="font-size:14px">Rs. 48,500 / Month — All-In</div>
+              <div class="qcard-desc">Single retainer, no cost splitting. Covers everything.</div>
+              <div class="qcard-arr" style="margin-top:6px">→ See Full Investment Breakdown</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section id="summary">
+      <div class="eyebrow">01 — Executive Summary</div>
+      <h2 class="sec-title">WHY DIGITAL<br><span class="g">NOW?</span></h2>
+      <div class="g2">
+        <div>
+          <p class="sec-sub">Cellcon operates in a competitive precast and modular construction industry. While competitors focus on product visibility, a clear opportunity exists to build structured digital authority, search visibility, and a consistent lead generation system.</p>
+          <div class="tag-row">
+            <span class="tg tg-g">Precast Construction</span>
+            <span class="tg tg-g">3D Volumetric</span>
+            <span class="tg tg-g">B2B Lead Generation</span>
+            <span class="tg tg-d">Tamil Nadu</span>
+            <span class="tg tg-d">India-wide</span>
+          </div>
+        </div>
+        <div class="blist">
+          <div class="bi">Strengthen Cellcon's digital presence across all major platforms</div>
+          <div class="bi">Improve visibility among developers, contractors & infrastructure firms</div>
+          <div class="bi">Increase search engine rankings for precast-related queries</div>
+          <div class="bi">Build engineering credibility through structured, high-value content</div>
+          <div class="bi">Generate consistent inbound project inquiries from qualified leads</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJECTIVES -->
+    <section id="objectives">
+      <div class="eyebrow">02 — Objectives</div>
+      <h2 class="sec-title">FIVE STRATEGIC<br><span class="g">GOALS</span></h2>
+      <div class="g5" style="margin-top:0">
+        <div class="ni"><div class="ni-num">01</div><div class="ni-text">Position Cellcon as a trusted precast & 3D volumetric solutions partner</div></div>
+        <div class="ni"><div class="ni-num">02</div><div class="ni-text">Build strong social media visibility across all key platforms</div></div>
+        <div class="ni"><div class="ni-num">03</div><div class="ni-text">Improve organic search rankings using targeted monthly SEO</div></div>
+        <div class="ni"><div class="ni-num">04</div><div class="ni-text">Create structured content to support B2B decision-making</div></div>
+        <div class="ni"><div class="ni-num">05</div><div class="ni-text">Establish a steady pipeline of qualified inbound project inquiries</div></div>
+      </div>
+    </section>
+
+    <!-- SHORT VIDEOS -->
+    <section id="videos">
+      <div class="eyebrow">03 — Scope of Work</div>
+      <h2 class="sec-title">SHORT-FORM<br><span class="g">VIDEOS</span></h2>
+      <p class="sec-sub">8 videos per month, shot and edited in-house by our dedicated on-site resource.</p>
+      <div class="g2">
+        <div>
+          <div class="dl"><div class="dl-line"></div><div class="dl-text">Content Types</div><div class="dl-line"></div></div>
+          <div class="blist">
+            <div class="bi">Precast installation demonstrations</div>
+            <div class="bi">3D volumetric placement clips</div>
+            <div class="bi">Factory production visuals</div>
+            <div class="bi">Quality testing processes</div>
+            <div class="bi">Infrastructure solution highlights</div>
+            <div class="bi">Before & after project comparisons</div>
+            <div class="bi">Project milestone updates</div>
+            <div class="bi">Engineering insight snippets</div>
+          </div>
+        </div>
+        <div>
+          <div class="dl"><div class="dl-line"></div><div class="dl-text">Platform Distribution</div><div class="dl-line"></div></div>
+          <div class="tag-row" style="margin-bottom:22px">
+            <span class="tg tg-g">Instagram Reels</span>
+            <span class="tg tg-g">Facebook Reels</span>
+            <span class="tg tg-g">LinkedIn Videos</span>
+            <span class="tg tg-g">YouTube Shorts</span>
+          </div>
+          <div class="dl"><div class="dl-line"></div><div class="dl-text">Content Style</div><div class="dl-line"></div></div>
+          <div class="blist" style="margin-bottom:22px">
+            <div class="bi">Clear product visibility with benefit-focused messaging</div>
+            <div class="bi">Strong text overlays with direct call-to-action</div>
+            <div class="bi">Optimised for each platform's native format & algorithm</div>
+          </div>
+          <div class="card" style="border-color:rgba(201,169,110,0.2);background:rgba(201,169,110,0.05)">
+            <div class="card-title" style="color:var(--gold)">📍 Shot & Edited In-House</div>
+            <div class="card-desc" style="margin-top:6px">All content captured on-site, edited by our dedicated resource — faster turnaround, brand consistency, zero logistics overhead.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POSTERS + YOUTUBE -->
+    <section id="posters">
+      <div class="eyebrow">04 — Scope of Work</div>
+      <h2 class="sec-title">POSTERS &<br><span class="g">YOUTUBE</span></h2>
+      <div class="g2">
+        <div>
+          <div class="dl"><div class="dl-line"></div><div class="dl-text">Poster Creatives — 6 / Month</div><div class="dl-line"></div></div>
+          <div class="blist" style="margin-bottom:20px">
+            <div class="bi">Precast vs Traditional Comparison</div>
+            <div class="bi">Product Category Highlight</div>
+            <div class="bi">Infrastructure Solutions Overview</div>
+            <div class="bi">Quality & Compliance Standards</div>
+            <div class="bi">Project Milestone Showcase</div>
+            <div class="bi">Client Testimonial / Benefit Graphic</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="margin-bottom:10px">Design Approach</div>
+            <div class="tag-row">
+              <span class="tg tg-d">Bold Visuals</span><span class="tg tg-d">Minimal Text</span>
+              <span class="tg tg-d">Pro Layout</span><span class="tg tg-d">Clear CTA</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="dl"><div class="dl-line"></div><div class="dl-text">YouTube Long-Form — 4 / Month</div><div class="dl-line"></div></div>
+          <div class="blist" style="margin-bottom:20px">
+            <div class="bi">Factory walkthrough & production tour</div>
+            <div class="bi">Precast vs conventional construction comparison</div>
+            <div class="bi">Case study breakdown</div>
+            <div class="bi">3D volumetric system explanation</div>
+          </div>
+          <div class="card">
+            <div class="card-title" style="margin-bottom:10px">Each Video Includes</div>
+            <div class="blist">
+              <div class="bi">Structured script & professional editing</div>
+              <div class="bi">SEO-optimised title, description & keyword tags</div>
+              <div class="bi">Builds authority & improves long-tail search ranking</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO -->
+    <section id="seo">
+      <div class="eyebrow">05 — SEO Strategy</div>
+      <h2 class="sec-title">20 KEYWORDS<br><span class="g">/ MONTH</span></h2>
+      <p class="sec-sub">Targeted keyword strategy across primary and long-tail terms, executed with full on-page and technical SEO.</p>
+      <div class="g2">
+        <div>
+          <div class="dl"><div class="dl-line"></div><div class="dl-text">Primary Keywords</div><div class="dl-line"></div></div>
+          <div class="kw-grid" style="margin-bottom:20px">
+            <div class="kwp"><span class="kwp-h">#</span>Precast concrete manufacturer India</div>
+            <div class="kwp"><span class="kwp-h">#</span>Precast manufacturer Tamil Nadu</div>
+            <div class="kwp"><span class="kwp-h">#</span>Infrastructure precast solutions</div>
+            <div class="kwp"><span class="kwp-h">#</span>3D volumetric construction India</div>
+            <div class="kwp"><span class="kwp-h">#</span>Modular construction company India</div>
+            <div class="kwp"><span class="kwp-h">#</span>Precast compound wall manufacturer</div>
+          </div>
+          <div class="dl"><div class="dl-line"></div><div class="dl-text">Long-Tail Keywords</div><div class="dl-line"></div></div>
+          <div class="tag-row">
+            <span class="tg tg-d">Modular building cost India</span>
+            <span class="tg tg-d">Rapid infrastructure construction</span>
+            <span class="tg tg-d">Precast panels supplier</span>
+            <span class="tg tg-d">Fast construction systems</span>
+            <span class="tg tg-d">Precast structural elements</span>
+            <span class="tg tg-d">Industrial precast supplier</span>
+          </div>
+        </div>
+        <div>
+          <div class="dl"><div class="dl-line"></div><div class="dl-text">SEO Execution</div><div class="dl-line"></div></div>
+          <div class="blist">
+            <div class="bi">On-page optimization across all service pages</div>
+            <div class="bi">Service page keyword mapping & siloing</div>
+            <div class="bi">Meta title & description optimization</div>
+            <div class="bi">Internal linking structure improvements</div>
+            <div class="bi">Image alt-text and file name optimization</div>
+            <div class="bi">Technical SEO checks (speed, indexing, schema)</div>
+            <div class="bi">Google Search Console monitoring</div>
+            <div class="bi">Monthly keyword ranking report & analysis</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blogs">
+      <div class="eyebrow">06 — Blog Strategy</div>
+      <h2 class="sec-title">CONTENT THAT<br><span class="g">RANKS</span></h2>
+      <p class="sec-sub">4 professionally written, SEO-optimised blogs per month — designed to rank, educate, and convert.</p>
+      <div class="g2">
+        <div>
+          <div class="g3" style="margin-bottom:22px">
+            <div class="card" style="text-align:center;padding:18px 12px">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold)">4</div>
+              <div style="font-size:10.5px;color:#4a4a4a;margin-top:2px">Blogs / Month</div>
+            </div>
+            <div class="card" style="text-align:center;padding:18px 12px">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold)">1.5K</div>
+              <div style="font-size:10.5px;color:#4a4a4a;margin-top:2px">Words Each</div>
+            </div>
+            <div class="card" style="text-align:center;padding:18px 12px">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold)">CTA</div>
+              <div style="font-size:10.5px;color:#4a4a4a;margin-top:2px">Every Post</div>
+            </div>
+          </div>
+          <div class="blist">
+            <div class="bi">Supports SEO & improves keyword rankings</div>
+            <div class="bi">Builds brand authority in the precast sector</div>
+            <div class="bi">Drives sustained organic website traffic</div>
+            <div class="bi">Educates B2B decision-makers and buyers</div>
+          </div>
+        </div>
+        <div>
+          <div class="dl"><div class="dl-line"></div><div class="dl-text">Sample Topics</div><div class="dl-line"></div></div>
+          <div class="bgrid">
+            <div class="bcard"><div class="bcard-n">01</div><div class="bcard-t">Why Precast Construction is Transforming Infrastructure Projects Across India</div></div>
+            <div class="bcard"><div class="bcard-n">02</div><div class="bcard-t">3D Volumetric Construction: Speed & Cost Benefits for Developers</div></div>
+            <div class="bcard"><div class="bcard-n">03</div><div class="bcard-t">Precast vs Traditional Construction — A Detailed Technical Comparison</div></div>
+            <div class="bcard"><div class="bcard-n">04</div><div class="bcard-t">How Developers Can Reduce Project Timelines Using Precast Systems</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNNEL + REPORTING -->
+    <section id="funnel">
+      <div class="eyebrow">07 — Lead Funnel & Reporting</div>
+      <h2 class="sec-title">FROM VISIBILITY<br><span class="g">TO CONVERSION</span></h2>
+      <p class="sec-sub">Every activity moves prospects through a clear funnel — from brand awareness to signed project.</p>
+      <div class="funnel" style="margin-bottom:44px">
+        <div class="fstep"><div class="farr">›</div><div class="fstep-n">STEP 01</div><div class="fstep-t">Social Media Visibility</div><div class="fstep-d">Consistent content published across all platforms weekly</div></div>
+        <div class="fstep"><div class="farr">›</div><div class="fstep-n">STEP 02</div><div class="fstep-t">Website Traffic</div><div class="fstep-d">SEO & blogs drive organic visits from target audience</div></div>
+        <div class="fstep"><div class="farr">›</div><div class="fstep-n">STEP 03</div><div class="fstep-t">Engagement</div><div class="fstep-d">Videos and blogs build trust, authority & recall</div></div>
+        <div class="fstep"><div class="farr">›</div><div class="fstep-n">STEP 04</div><div class="fstep-t">Inquiry / Contact</div><div class="fstep-d">Qualified leads reach out through forms & DMs</div></div>
+        <div class="fstep"><div class="farr">›</div><div class="fstep-n">STEP 05</div><div class="fstep-t">Consultation</div><div class="fstep-d">Discovery calls with decision-makers</div></div>
+        <div class="fstep fin"><div class="fstep-n">STEP 06</div><div class="fstep-t">Project Conversion</div><div class="fstep-d">Qualified lead becomes a signed client</div></div>
+      </div>
+      <div class="dl"><div class="dl-line"></div><div class="dl-text">Monthly Reporting Includes</div><div class="dl-line"></div></div>
+      <div class="rgrid">
+        <div class="ri"><div class="rdot"></div>Social media reach & engagement</div>
+        <div class="ri"><div class="rdot"></div>Video performance analytics</div>
+        <div class="ri"><div class="rdot"></div>LinkedIn engagement growth</div>
+        <div class="ri"><div class="rdot"></div>Website traffic performance</div>
+        <div class="ri"><div class="rdot"></div>Keyword ranking movement</div>
+        <div class="ri"><div class="rdot"></div>Lead inquiries generated</div>
+      </div>
+    </section>
+
+    <!-- DELIVERABLES -->
+    <section id="deliverables">
+      <div class="eyebrow">08 — Monthly Deliverables</div>
+      <h2 class="sec-title">EVERYTHING<br><span class="g">DELIVERED</span></h2>
+      <p class="sec-sub">A complete, managed digital marketing operation delivered every single month.</p>
+      <div class="g4">
+        <div class="dcard dk"><div class="dcard-n">8</div><div class="dcard-l">Short-Form Videos</div><div class="dcard-s">Instagram, Facebook, LinkedIn, YouTube — shot & edited in-house</div></div>
+        <div class="dcard lt"><div class="dcard-n">6</div><div class="dcard-l">Poster Creatives</div><div class="dcard-s">Brand, product, testimonials & seasonal designs</div></div>
+        <div class="dcard dk"><div class="dcard-n">4</div><div class="dcard-l">YouTube Long Videos</div><div class="dcard-s">Factory, case studies, comparisons & explainers</div></div>
+        <div class="dcard lt"><div class="dcard-n">4</div><div class="dcard-l">SEO Blogs</div><div class="dcard-s">1,200–1,500 words, CTA included, keyword-optimised</div></div>
+        <div class="dcard dk"><div class="dcard-n">20</div><div class="dcard-l">SEO Keywords</div><div class="dcard-s">On-page + technical monthly SEO execution & tracking</div></div>
+        <div class="dcard lt"><div class="dcard-n">4</div><div class="dcard-l">Platforms Managed</div><div class="dcard-s">Instagram · Facebook · LinkedIn · YouTube — fully managed</div></div>
+        <div class="dcard dk"><div class="dcard-n">1</div><div class="dcard-l">Analytics Report</div><div class="dcard-s">Monthly reach, rankings, lead count & performance data</div></div>
+        <div class="dcard lt"><div class="dcard-n">∞</div><div class="dcard-l">Strategy Support</div><div class="dcard-s">Ongoing growth strategy, content calendar & account management</div></div>
+      </div>
+    </section>
+
+    <!-- INVESTMENT -->
+    <section id="investment">
+      <div class="eyebrow">09 — Investment</div>
+      <h2 class="sec-title">TRANSPARENT<br><span class="g">PRICING</span></h2>
+      <div class="inv-hero">
+        <div class="inv-price-wrap">
+          <div class="inv-lbl">Monthly Retainer</div>
+          <div class="inv-price"><em>Rs.</em> 48,500</div>
+          <div class="inv-tag">Single Unified Engagement — No Cost Splitting</div>
+        </div>
+        <div class="inv-div"></div>
+        <div class="inv-inc">
+          <div class="inv-inc-lbl">This retainer covers</div>
+          <div class="inc-grid">
+            <div class="inc-row"><div class="inc-ck">✓</div>Strategy development</div>
+            <div class="inc-row"><div class="inc-ck">✓</div>Content planning</div>
+            <div class="inc-row"><div class="inc-ck">✓</div>Creative design</div>
+            <div class="inc-row"><div class="inc-ck">✓</div>Video editing</div>
+            <div class="inc-row"><div class="inc-ck">✓</div>Copywriting</div>
+            <div class="inc-row"><div class="inc-ck">✓</div>Blog writing</div>
+            <div class="inc-row"><div class="inc-ck">✓</div>SEO optimization</div>
+            <div class="inc-row"><div class="inc-ck">✓</div>Platform management</div>
+            <div class="inc-row"><div class="inc-ck">✓</div>Performance reporting</div>
+          </div>
+        </div>
+      </div>
+      <div class="dl"><div class="dl-line"></div><div class="dl-text">Not Included — Billed Separately If Required</div><div class="dl-line"></div></div>
+      <div class="excl-grid">
+        <div class="excl-row"><span class="excl-x">×</span>Casting charges</div>
+        <div class="excl-row"><span class="excl-x">×</span>Model fees</div>
+        <div class="excl-row"><span class="excl-x">×</span>Location charges</div>
+        <div class="excl-row"><span class="excl-x">×</span>Paid advertisement budgets</div>
+        <div class="excl-row"><span class="excl-x">×</span>Travel & accommodation</div>
+        <div class="excl-row"><span class="excl-x">×</span>Large-scale production</div>
+      </div>
+      <p style="font-size:10.5px;color:#333;margin-top:14px;font-style:italic">* GST applicable as per norms. Scope beyond agreed deliverables charged separately. Paid ad spends are additional.</p>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section id="outcomes">
+      <div class="eyebrow">10 — Expected Outcomes</div>
+      <h2 class="sec-title">RESULTS WITHIN<br><span class="g">90 DAYS</span></h2>
+      <p class="sec-sub">Measurable improvements across visibility, authority, and inbound lead generation — within the first three months.</p>
+      <div class="g3">
+        <div class="ocard dk"><div class="ocard-icon">📈</div><div class="ocard-title">Digital Presence</div><div class="ocard-desc">Strong and consistent brand presence across all major platforms, with quality content published every week.</div></div>
+        <div class="ocard lt"><div class="ocard-icon">🔍</div><div class="ocard-title">Search Rankings</div><div class="ocard-desc">Improved visibility for precast and construction keywords in Google organic search results.</div></div>
+        <div class="ocard dk"><div class="ocard-icon">🤝</div><div class="ocard-title">B2B Engagement</div><div class="ocard-desc">Meaningful engagement from developers, contractors, and infrastructure decision-makers on LinkedIn & YouTube.</div></div>
+        <div class="ocard lt"><div class="ocard-icon">🏆</div><div class="ocard-title">Brand Credibility</div><div class="ocard-desc">Positioned as a trusted authority in the precast and modular construction sector across India.</div></div>
+        <div class="ocard dk"><div class="ocard-icon">📬</div><div class="ocard-title">Inbound Inquiries</div><div class="ocard-desc">A consistent flow of qualified project inquiries through digital channels, forms, and direct messages.</div></div>
+        <div class="ocard lt"><div class="ocard-icon">🎯</div><div class="ocard-title">Competitive Edge</div><div class="ocard-desc">Clear differentiation from competitors who lack structured digital marketing and content authority.</div></div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <section id="foot" style="background:var(--dark)!important">
+      <div style="text-align:center;position:relative">
+        <div class="foot-label">Digital Marketing Proposal</div>
+        <div class="foot-title">THANK YOU</div>
+        <div class="foot-sub">We don't just talk the talk — we walk the walk. Let's partner up.</div>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a href="#hero" class="btn-g">Back to Top ↑</a>
+          <a href="#investment" class="btn-o">View Investment</a>
+        </div>
+        <div class="foot-contact" style="margin-top:40px">
+          <a href="https://khosocial.com" target="_blank">khosocial.com</a>
+          &nbsp;·&nbsp; Prabu NS — 98942 95095
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:9.5px;color:#222;margin-top:12px">
+          Cellcon Precast Solutions — Integrated Digital Marketing Proposal 2024
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+// ── HAMBURGER TOGGLE ──
+function toggleNav() {
+  const s = document.getElementById('sidenav');
+  const o = document.getElementById('overlay');
+  const b = document.getElementById('hamburger');
+  s.classList.toggle('open');
+  o.classList.toggle('open');
+  b.classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('sidenav').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+// ── NAV LINK CLICK ──
+function nc(el) {
+  if (window.innerWidth <= 880) closeNav();
+}
+
+// ── ACTIVE SECTION HIGHLIGHT ──
+const secs = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-link');
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const a = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if (a) {
+        a.classList.add('active');
+        a.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-25% 0px -65% 0px' });
+
+secs.forEach(s => obs.observe(s));
+
+// ── FADE IN ON SCROLL ──
+const fels = document.querySelectorAll('.card,.ni,.dcard,.ocard,.qcard,.bcard,.kwp,.fstep,.ri,.excl-row,.inc-row');
+fels.forEach(el => el.classList.add('fi'));
+
+const fobs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      // Slight stagger per visible group
+      setTimeout(() => e.target.classList.add('on'), 50);
+      fobs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+fels.forEach(el => fobs.observe(el));
+</script>
+</body>
+</html>
